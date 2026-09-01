@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Game Mobil Balap</title>
+    <style>
+        body { background: #333; margin: 0; overflow: hidden; color: white; text-align: center; }
+        #jalan { width: 100vw; height: 75vh; background: #444; position: relative; border-left: 10px solid yellow; border-right: 10px solid yellow; overflow: hidden; }
+        #mobil { width: 40px; height: 70px; background: blue; position: absolute; bottom: 20px; left: 45%; border-radius: 8px; }
+        .musuh { width: 40px; height: 70px; background: red; position: absolute; border-radius: 8px; top: -80px; }
+        #skor { font-size: 24px; padding: 10px; background: black; }
+        #dpad { position: fixed; bottom: 20px; width: 100%; display: flex; justify-content: space-around; }
+        .btn { width: 100px; height: 100px; background: #222; border: 3px solid #555; border-radius: 50%; color: white; font-size: 40px; display: flex; justify-content: center; align-items: center; }
+        #gameover { position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.9); padding: 20px; border: 3px solid red; display: none; font-size: 20px; z-index: 10; }
+    </style>
+</head>
+<body>
+    <div id="skor">Skor: 0</div>
+    <div id="jalan">
+        <div id="mobil"></div>
+        <div id="gameover"><h2>TABRAKAN!</h2><p>Skor: <span id="skorAkhir">0</span></p><button onclick="location.reload()">Main Lagi</button></div>
+    </div>
+    <div id="dpad">
+        <div class="btn" ontouchstart="gerak('kiri')">←</div>
+        <div class="btn" ontouchstart="gerak('kanan')">→</div>
+    </div>
+<script>
+let x = 45; let skor = 0; let gameJalan = true; let musuhList = [];
+function gerak(arahan) { if(!gameJalan) return; if(arahan == 'kiri' && x > 10) x = x - 10; if(arahan == 'kanan' && x < 80) x = x + 10; document.getElementById('mobil').style.left = x + '%'; }
+function spawnMusuh() { if(!gameJalan) return; let musuh = document.createElement('div'); musuh.className = 'musuh'; let posisi = [20, 45, 70]; musuh.style.left = posisi[Math.floor(Math.random() * 3)] + '%'; document.getElementById('jalan').appendChild(musuh); musuhList.push(musuh); }
+function gameLoop() { if(!gameJalan) return; musuhList.forEach((musuh, i) => { let top = parseInt(musuh.style.top) || -80; top += 8; musuh.style.top = top + 'px'; if(top > document.getElementById('jalan').clientHeight) { document.getElementById('jalan').removeChild(musuh); musuhList.splice(i, 1); skor++; document.getElementById('skor').innerText = 'Skor: ' + skor; } }); requestAnimationFrame(gameLoop); }
+setInterval(spawnMusuh, 1000); gameLoop();
+</script>
+</body>
+</html><!DOCTYPE html>
+<html>
+<head>
+    <title>Game Mobil Balap</title>
+    <style>
+        body { background: #333; margin: 0; overflow: hidden; color: white; text-align: center; }
+        #jalan { width: 100vw; height: 75vh; background: #444; position: relative; border-left: 10px solid yellow; border-right: 10px solid yellow; overflow: hidden; }
+        #mobil { width: 40px; height: 70px; background: blue; position: absolute; bottom: 20px; left: 45%; border-radius: 8px; }
+        .musuh { width: 40px; height: 70px; background: red; position: absolute; border-radius: 8px; top: -80px; }
+        #skor { font-size: 24px; padding: 10px; background: black; }
+        #dpad { position: fixed; bottom: 20px; width: 100%; display: flex; justify-content: space-around; }
+        .btn { width: 100px; height: 100px; background: #222; border: 3px solid #555; border-radius: 50%; color: white; font-size: 40px; display: flex; justify-content: center; align-items: center; }
+        #gameover { position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.9); padding: 20px; border: 3px solid red; display: none; font-size: 20px; z-index: 10; }
+    </style>
+</head>
+<body>
+    <div id="skor">Skor: 0</div>
+    <div id="jalan">
+        <div id="mobil"></div>
+        <div id="gameover"><h2>TABRAKAN!</h2><p>Skor: <span id="skorAkhir">0</span></p><button onclick="location.reload()">Main Lagi</button></div>
+    </div>
+    <div id="dpad">
+        <div class="btn" ontouchstart="gerak('kiri')">←</div>
+        <div class="btn" ontouchstart="gerak('kanan')">→</div>
+    </div>
+<script>
+let x = 45; let skor = 0; let gameJalan = true; let musuhList = [];
+function gerak(arahan) { if(!gameJalan) return; if(arahan == 'kiri' && x > 10) x = x - 10; if(arahan == 'kanan' && x < 80) x = x + 10; document.getElementById('mobil').style.left = x + '%'; }
+function spawnMusuh() { if(!gameJalan) return; let musuh = document.createElement('div'); musuh.className = 'musuh'; let posisi = [20, 45, 70]; musuh.style.left = posisi[Math.floor(Math.random() * 3)] + '%'; document.getElementById('jalan').appendChild(musuh); musuhList.push(musuh); }
+function gameLoop() { if(!gameJalan) return; musuhList.forEach((musuh, i) => { let top = parseInt(musuh.style.top) || -80; top += 8; musuh.style.top = top + 'px'; if(top > document.getElementById('jalan').clientHeight) { document.getElementById('jalan').removeChild(musuh); musuhList.splice(i, 1); skor++; document.getElementById('skor').innerText = 'Skor: ' + skor; } }); requestAnimationFrame(gameLoop); }
+setInterval(spawnMusuh, 1000); gameLoop();
+</script>
+</body>
+</html>
