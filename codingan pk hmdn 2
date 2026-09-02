@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang Kami</title>
+    <style>
+        body { font-family: Arial; background: #fff8f0; padding: 20px; }
+        nav a { margin: 0 10px; padding: 8px 15px; background: #28a745; color: white; text-decoration: none; border-radius: 5px; }
+        nav a:hover { background: #1e7e34; }
+    </style>
+</head>
+<body>
+    <h1>Tentang Kami</h1>
+
+    <!-- MENU NAVIGASI YANG SAMA -->
+    <nav>
+        <a href="index.html">Beranda</a>
+        <a href="tentang.html">Tentang Kami</a>
+        <a href="kontak.html">Kontak</a>
+    </nav>
+
+    <h2>Kami adalah Tim Hebat</h2>
+    <p>Website ini dibuat untuk latihan tag &lt;a&gt; dan navigasi antar halaman.</p>
+    
+    <a href="index.html">← Kembali ke Beranda</a> | 
+    <a href="kontak.html">Hubungi Kami →</a>
+</body>
+</html>
