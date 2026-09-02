@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beranda - Website Saya</title>
+    <style>
+        body { font-family: Arial; background: #f0f8ff; padding: 20px; }
+        nav a { margin: 0 10px; padding: 8px 15px; background: #007bff; color: white; text-decoration: none; border-radius: 5px; }
+        nav a:hover { background: #0056b3; }
+    </style>
+</head>
+<body>
+    <h1>Selamat Datang di Website Saya</h1>
+    
+    <!-- MENU NAVIGASI MENGGUNAKAN TAG <a> -->
+    <nav>
+        <a href="index.html">Beranda</a>
+        <a href="tentang.html">Tentang Kami</a>
+        <a href="kontak.html">Kontak</a>
+    </nav>
+
+    <h2>Halaman Beranda</h2>
+    <p>Ini adalah halaman utama. Dari sini kamu bisa pindah ke halaman lain.</p>
+    <p>Coba klik menu di atas atau link di bawah ini:</p>
+    
+    <a href="tentang.html">→ Kenali kami lebih lanjut</a>
+</body>
+</html>
