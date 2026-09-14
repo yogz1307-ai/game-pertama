@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surat Cinta Buat Kamu! 💖</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ffeef8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            text-align: center;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(255, 105, 180, 0.2);
+            max-width: 400px;
+            width: 90%;
+            position: relative;
+        }
+        h1 {
+            color: #d11a5b;
+            font-size: 24px;
+        }
+        p {
+            color: #555;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        .emoji {
+            font-size: 50px;
+            margin-bottom: 10px;
+            display: block;
+        }
+        .btn-group {
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            height: 50px;
+            position: relative;
+        }
+        button {
+            padding: 10px 25px;
+            font-size: 16px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.2s ease;
+        }
+        #btn-yes {
+            background-color: #ff477e;
+            color: white;
+        }
+        #btn-no {
+            background-color: #ccc;
+            color: #333;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="main-card">
+        <span class="emoji" id="icon">❤️</span>
+        <h1 id="title">Pertanyaan Serius! 👀</h1>
+        <p id="text">Kamu tahu gak kalau hari ini aku makin sayang sama kamu? Kamu sayang juga gak sama aku?</p>
+        
+        <div class="btn-group">
+            <button id="btn-yes" onclick="accepted()">Sayang Banget!</button>
+            <button id="btn-no" onmouseover="moveButton()" onclick="moveButton()">Nggak 😜</button>
+        </div>
+    </div>
+
+    <script>
+        const btnNo = document.getElementById('btn-no');
+        const btnYes = document.getElementById('btn-yes');
+        
+        // Mengatur posisi awal tombol "Nggak" agar sejajar di kanan
+        window.onload = () => {
+            btnNo.style.left = (btnYes.offsetLeft + btnYes.offsetWidth + 20) + 'px';
+            btnNo.style.top = btnYes.offsetTop + 'px';
+        };
+
+        // Fungsi membuat tombol "Nggak" kabur saat didekati cursor/ditekan
+        function moveButton() {
+            const container = document.getElementById('main-card');
+            
+            // Batasan area tombol boleh bergerak (di dalam kartu)
+            const maxX = container.clientWidth - btnNo.clientWidth - 20;
+            const maxY = container.clientHeight - btnNo.clientHeight - 20;
+            
+            const randomX = Math.floor(Math.random() * maxX);
+            const randomY = Math.floor(Math.random() * maxY);
+            
+            btnNo.style.left = randomX + 'px';
+            btnNo.style.top = randomY + 'px';
+        }
+
+        // Fungsi ketika tombol "Sayang Banget!" diklik
+        function accepted() {
+            document.getElementById('icon').innerText = '🥰';
+            document.getElementById('title').innerText = 'Yeeeaaayyy! 🎉';
+            document.getElementById('text').innerHTML = 'Makasih ya udah sayang sama aku juga! <br><br><i>"In the morning, in the afternoon, and in the evening... I will always love you."</i> 🤍';
+            
+            // Sembunyikan tombol
+            document.querySelector('.btn-group').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
